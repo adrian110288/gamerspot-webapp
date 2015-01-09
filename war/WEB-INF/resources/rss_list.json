@@ -1,0 +1,18 @@
+{
+	"gamerspot" : "http://www.gamespot.com/feeds/news/",
+	"joystiq" : "http://www.joystiq.com/rss.xml",
+	"pcgamer" : "http://www.pcgawewadmer.com/feed/",
+	"n4g" : "http://n4g.com/rss/news?channel=&sort=latest",
+	"polygon" : "http://www.polygon.com/rss/index.xml",
+	"eurogamer" : "http://www.eurogamer.net/?format=rss&type=news",
+	"psblogeu" : "http://blog.eu.playstation.com/feed/",
+	"psuk" : "http://uk.playstation.com/rss/news/en_GB/",
+	"nintendomagazine" : "http://www.officialnintendomagazine.co.uk/rss/feed.php?type=1&amp;limit=10",
+	"totalxbox" : "http://www.totalxbox.com/rss/feed.php?type=1&amp;priority=1&amp;limit=20",
+	"ps4daily" : "http://feeds.feedburner.com/PS4Daily",
+	"nintendolife" : "http://www.nintendolife.com/feeds/news",
+	"mobilegamesfaqs" : "http://www.mobilegamefaqs.com/rss/mgfs_news.rss",
+    "gamezeboipad" : "http://www.gamezebo.com/ipad/rss",
+    "gamezeboiphone" : "http://www.gamezebo.com/iphone/rss",
+    "gamezeboandroid" : "http://www.gamezebo.com/android/rss"
+}
