@@ -1,0 +1,2 @@
+# gamerspot-webapp
+Gamerspot backend
