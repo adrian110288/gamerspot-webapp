@@ -22,6 +22,7 @@ public class Feed implements Serializable{
 		this.pubDate = pubDate;
 		this.creator = creator;
 		this.service = service;
+		
 	}
 
 	public String getGuid() {

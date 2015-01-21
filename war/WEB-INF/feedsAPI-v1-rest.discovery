@@ -1,0 +1,148 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"c05bU6zpvXPOpQakG5gG3IOJh8Y/0wv2wgLldce1JJoM6KV4dMhFxbw\"",
+ "discoveryVersion": "v1",
+ "id": "feedsAPI:v1",
+ "name": "feedsAPI",
+ "version": "v1",
+ "description": "This is an API",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://gamerspot-0914.appspot.com/_ah/api/feedsAPI/v1/",
+ "basePath": "/_ah/api/feedsAPI/v1/",
+ "rootUrl": "https://gamerspot-0914.appspot.com/_ah/api/",
+ "servicePath": "feedsAPI/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Feed": {
+   "id": "Feed",
+   "type": "object",
+   "properties": {
+    "creator": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "guid": {
+     "type": "string"
+    },
+    "link": {
+     "type": "string"
+    },
+    "pubDate": {
+     "type": "string"
+    },
+    "service": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    }
+   }
+  },
+  "FeedCollection": {
+   "id": "FeedCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Feed"
+     }
+    }
+   }
+  }
+ },
+ "methods": {
+  "getAll": {
+   "id": "feedsAPI.getAll",
+   "path": "feedcollection",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "FeedCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getByService": {
+   "id": "feedsAPI.getByService",
+   "path": "feedcollection/{serviceName}",
+   "httpMethod": "GET",
+   "parameters": {
+    "serviceName": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "serviceName"
+   ],
+   "response": {
+    "$ref": "FeedCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

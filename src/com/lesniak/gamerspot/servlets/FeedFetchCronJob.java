@@ -57,8 +57,7 @@ public class FeedFetchCronJob extends HttpServlet {
 		long finishTime = System.currentTimeMillis();
 		double timeElapsed =((finishTime-startTime)/1000.0);
 
-
-		logger.info(feedList.size() + " new feeds\n"+rowsInserted+" rows inserted to database\n" + timeElapsed + "s.");
+		logger.info("---> CRON job run with result: " + rowsInserted + "");
 	}
 
 	private HashMap<String, Document> getDocumentList(){

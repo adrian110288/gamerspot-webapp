@@ -1,0 +1,119 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://gamerspot-0914.appspot.com/_ah/api",
+  "name" : "feedsAPI",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://gamerspot-0914.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "feedsAPI.getByService" : {
+      "path" : "feedcollection/{serviceName}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.lesniak.gamerspot.base.FeedsAPI.getByService",
+      "request" : {
+        "parameters" : {
+          "serviceName" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "feedsAPI.getAll" : {
+      "path" : "feedcollection",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.lesniak.gamerspot.base.FeedsAPI.getAll",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Feed" : {
+        "id" : "Feed",
+        "type" : "object",
+        "properties" : {
+          "guid" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "link" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "pubDate" : {
+            "type" : "string"
+          },
+          "creator" : {
+            "type" : "string"
+          },
+          "service" : {
+            "type" : "string"
+          }
+        }
+      },
+      "FeedCollection" : {
+        "id" : "FeedCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Feed"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.lesniak.gamerspot.base.FeedsAPI.getByService" : {
+        "response" : {
+          "$ref" : "FeedCollection"
+        }
+      },
+      "com.lesniak.gamerspot.base.FeedsAPI.getAll" : {
+        "response" : {
+          "$ref" : "FeedCollection"
+        }
+      }
+    }
+  }
+}
